@@ -1,0 +1,46 @@
+/* Pagamento.css */
+.pagamento-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 8px solid #026E81;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.mensagem-sucesso {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.formulario-pagamento {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.mensagem-erro {
+  color: red;
+}

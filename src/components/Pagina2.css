@@ -1,0 +1,202 @@
+/* Estilo global */
+body {
+
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  background-color: #c4c6d0;
+
+}
+
+/* Estilo do Navbar */
+.navbar {
+
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  position: fixed;
+  /* Fixa o navbar na tela */
+  top: 0;
+  /* Coloca o navbar no topo da tela */
+  width: 100%;
+  /* Faz o navbar ocupar toda a largura */
+  z-index: 1000;
+  /* Ajusta a ordem de sobreposição, se necessário */
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  order: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menu a:hover {
+  color: blue;
+  /* Cor do texto do menu ao passar o mouse - ajuste conforme necessário */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+/* Estilo do Saldo Container */
+.saldo-container {
+  width: 180px;
+  background-color: rgb(23, 45, 238);
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  margin: -250px auto 0;
+  /* Ajuste a margem superior conforme necessário */
+}
+
+.saldo {
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilo das Imagens */
+.image-container {
+  max-width: 80%;
+  /* Ajuste o valor conforme necessário */
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  text-align: center;
+  margin: 5px auto;
+  /* Ajuste a margem superior conforme necessário */
+}
+
+.image-container a {
+
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 5px solid #026E81;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-container p {
+  margin: 10px 0;
+  color: #333;
+}
+
+
+/* Estilo do Menu Responsivo */
+@media (max-width: 1300px) {
+
+  /* Estilo do Navbar */
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    position: fixed;
+    /* Fixa o navbar na tela */
+    top: 0;
+    /* Coloca o navbar no topo da tela */
+    width: 100%;
+    /* Faz o navbar ocupar toda a largura */
+    z-index: 1000;
+    /* Ajusta a ordem de sobreposição, se necessário */
+  }
+
+  /* Estilo do Saldo Container */
+  .saldo-container {
+    width: 180px;
+    background-color: rgb(23, 45, 238);
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin: -250px auto 0;
+    /* Ajuste a margem superior conforme necessário */
+  }
+
+  .navbar {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    position: static;
+    background-color: #333;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: flex;
+    margin-left: 12px;
+    margin-top: 3px;
+  }
+
+  /* Estilo das Imagens */
+  .image-container {
+    max-width: 80%;
+    /* Ajuste o valor conforme necessário */
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: center;
+    margin: 5px auto 5px;
+
+  }
+
+
+}

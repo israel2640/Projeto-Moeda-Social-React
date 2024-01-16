@@ -1,0 +1,33 @@
+/* ExtratoSaldo.css */
+body {
+  background-color: #00ABBD;
+
+}
+
+.extrato-saldo-container {
+  border: 10px solid #026E81;
+  /* Adicione a borda aqui */
+  padding: 10px;
+  /* Adicione algum espaço interno se desejar */
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  padding: 20px;
+  margin-top: -300px;
+  /* Adicione um valor de margem superior conforme necessário */
+  background-color: white;
+}
+
+.extrato-tabela {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.extrato-tabela th,
+.extrato-tabela td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}

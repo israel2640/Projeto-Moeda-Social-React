@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  padding-top: 300px;
+}
+
+.cadastro-usuario-container {
+  max-width: 90%;
+  margin: 300px auto 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 20px;
+  /* Espaçamento interno uniforme */
+}
+
+.foto-container {
+  text-align: center;
+}
+
+.foto-label {
+  display: block;
+  cursor: pointer;
+}
+
+#previewFoto {
+  max-width: 80%;
+  max-height: 130px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.nome-container,
+.dados-curso-container,
+.dados-contato-container {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#mensagem {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  /* Adicionando espaço abaixo do título */
+}
+
+/* Adicionando margem inferior ao botão Login */
+button:last-of-type {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
