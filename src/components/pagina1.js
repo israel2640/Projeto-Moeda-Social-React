@@ -10,7 +10,7 @@ const Pagina1 = () => {
 
   const realizarLogin = () => {
     // Lógica para realizar o login
-    if (matricula === '123456' && senha === '1234') {
+    if (matricula === '261944' && senha === '1944') {
       // Redireciona para a Pagina2 se a matrícula e senha estiverem corretas
       navigate('/pagina2');
     } else {
