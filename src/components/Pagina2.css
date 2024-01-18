@@ -120,6 +120,19 @@ body {
   color: #333;
 }
 
+.image-link {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-link:hover .hover-image {
+  transform: translateY(-10px);
+}
+
 
 /* Estilo do Menu Responsivo */
 @media (max-width: 1300px) {

@@ -58,20 +58,20 @@ const Pagina2 = () => {
 
       {/* Adicionando imagens */}
       <div className="image-container">
-        <Link to="/transferencia">
-          <img src="transferir.png" alt="transferencia" />
+        <Link to="/transferencia" className="image-link">
+          <img src="transferir.png" alt="transferencia" className="hover-image" />
           <p>Transferência</p>
         </Link>
-        <Link to="/pagamento">
-          <img src="pagar.png" alt="Pagamento" />
+        <Link to="/pagamento" className="image-link">
+          <img src="pagar.png" alt="Pagamento" className="hover-image" />
           <p>Pagar</p>
         </Link>
-        <Link to="/extrato">
-          <img src="extrato.png" alt="extrato" />
+        <Link to="/extrato" className="image-link">
+          <img src="extrato.png" alt="extrato" className="hover-image" />
           <p>Extrato</p>
         </Link>
-        <Link to="/saldo">
-          <img src="receber_moedas.png" alt="Adquirir Moedas" />
+        <Link to="/saldo" className="image-link">
+          <img src="receber_moedas.png" alt="Adquirir Moedas" className="hover-image" />
           <p>Adquirir Moedas</p>
         </Link>
       </div>
@@ -80,3 +80,4 @@ const Pagina2 = () => {
 };
 
 export default Pagina2;
+
