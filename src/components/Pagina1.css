@@ -62,3 +62,14 @@ a {
   color: #3498db;
   text-decoration: none;
 }
+
+.imagem-topo-esquerdo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  /* Ajusta a largura */
+  height: auto;
+  /* Mantém a proporção original da imagem */
+  z-index: 999;
+}
