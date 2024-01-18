@@ -2,7 +2,7 @@
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 8px solid #B4BEC9;
+    border: 0px solid #B4BEC9; 
     border-radius: 8px;
     position: absolute;
     top: 50%;
@@ -12,8 +12,8 @@
 }
 
 .mensagem-aprovada {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #F2C12E;
+    color: black;
     padding: 15px;
     text-align: center;
 }
