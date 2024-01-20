@@ -2,31 +2,52 @@ body {
    background-color: #00ABBD;
    background-image: url("ifundo.jpeg");
    background-size: cover;
-  }
-  
-  .extrato-saldo-container {
-   border: 10px solid #B4BEC9;
+
+}
+
+.extrato-saldo-container {
+   border: 8px solid #15519b;
    padding: 10px;
    max-width: 800px;
    margin: auto;
-   padding: 20px;
-   padding: 20px;
    margin-top: -300px;
    background-color: white;
    
-  }
-  
-  .extrato-tabela {
+}
+
+.extrato-tabela-container {
+   overflow: auto; /* Barra de rolagem */
+   max-height: 300px; /* Altura máxima do contêiner da tabela */
+}
+
+.extrato-tabela {
    width: 100%;
-   margin-top: 20px;
    border: 1px solid #ddd;
    border-collapse: collapse;
-  }
-  
-  .extrato-tabela th,
-  .extrato-tabela td {
+}
+
+.extrato-tabela th {
    border: 1px solid black;
-   padding: 8px;
+   padding: 10px; 
+   text-align: center;
+   font-size: 14px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.extrato-tabela td {
+   border: 1px solid black;
+   padding: 10px; 
    text-align: left;
-  }
-  
+   font-size: 12px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.extrato-saldo-container p {
+   margin-bottom: 5px; 
+}
+
+.titulo-extrato {
+   color: #1b28f4;
+   text-align: center;
+   
+}
