@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 import './Cadastro.css';
 
 const CadastroUsuario = () => {
-  const [previewFoto, setPreviewFoto] = useState('./img/Add_Image.png');
+  const navigate = useNavigate();
   const [mensagem, setMensagem] = useState('');
   const [dadosFormulario, setDadosFormulario] = useState({
     nome: '',
@@ -14,45 +15,39 @@ const CadastroUsuario = () => {
     celular: '',
   });
 
-  const previewImage = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewFoto(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleChange = (event) => {
     const { id, value } = event.target;
     setDadosFormulario({ ...dadosFormulario, [id]: value });
   };
 
-  const enviarDados = async () => {
-    // Verificar se todos os campos estão preenchidos
-    for (const key in dadosFormulario) {
-      if (dadosFormulario[key] === '') {
+  const enviarDados = () => {
+    try {
+      // Verificar se algum campo está vazio
+      const camposVazios = Object.values(dadosFormulario).some(value => value === '');
+
+      if (camposVazios) {
         setMensagem('Por favor, preencha todos os campos.');
         return;
       }
-    }
 
-    // Verificar se as senhas coincidem
-    if (dadosFormulario.senha !== dadosFormulario.confirmeSenha) {
-      setMensagem('As senhas não coincidem.');
-      return;
-    }
+      // Verificar se as senhas coincidem
+      if (dadosFormulario.senha !== dadosFormulario.confirmeSenha) {
+        setMensagem('As senhas não coincidem.');
+        return;
+      }
 
-    // Simular uma requisição assíncrona
-    setMensagem('Enviando dados... Aguarde.');
-    try {
-      await enviarDadosParaServidor(dadosFormulario);
-      setMensagem('Dados enviados com sucesso! Aguarde até 48h para a liberação do login.');
+      // Mostrar os dados no console
+      console.group('Dados Enviados');
+      console.log('Nome:', dadosFormulario.nome);
+      console.log('Nome do Curso:', dadosFormulario.nomeCurso);
+      console.log('Nome de Usuário:', dadosFormulario.nomeUsuario);
+      console.log('Senha:', dadosFormulario.senha);
+      console.log('E-mail:', dadosFormulario.email);
+      console.log('Celular:', dadosFormulario.celular);
+      console.groupEnd();
 
       // Limpar campos após o envio bem-sucedido
+      setMensagem('Dados enviados com sucesso!');
       setTimeout(() => {
         setMensagem('');
         setDadosFormulario({
@@ -64,80 +59,52 @@ const CadastroUsuario = () => {
           email: '',
           celular: '',
         });
-        setPreviewFoto('./img/Add_Image.png');
-      }, 5000); // Simula um atraso de 5 segundos (você pode ajustar conforme necessário)
+      }, 5000); // Simula um atraso de 5 segundos
+
     } catch (error) {
       console.error('Erro ao enviar dados:', error);
       setMensagem('Erro ao enviar dados. Por favor, tente novamente.');
     }
   };
 
-  const enviarDadosParaServidor = (dados) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Aqui você pode adicionar a lógica para enviar os dados para o servidor
-        // Simulando o sucesso
-        resolve();
-        // Simulando um erro
-        // reject(new Error('Erro no servidor'));
-      }, 2000); // Simula um atraso de 2 segundos
-    });
-  };
-
-  const abrirNovaPagina = () => {
-    // Aqui você pode adicionar a lógica para redirecionar para a página de login
-    // Dependendo do sistema de roteamento que você está usando
-    console.log('Redirecionando para a página de login...');
-  };
-
   return (
     <div className="cadastro-usuario-container">
       <center><h1>Cadastro de Usuário</h1></center>
 
-      {/* Carregar a foto do usuário */}
-      <div className="foto-container">
-        <label htmlFor="inputFoto" className="foto-label">
-          <img id="previewFoto" src={previewFoto} alt="Foto do Usuário" />
-          <span></span>
-        </label>
-        <input type="file" id="inputFoto" accept="image/*" onChange={previewImage} />
-      </div>
-
-      {/* Nome e sobrenome */}
       <div className="nome-container">
-        <label htmlFor="inputNome">Nome e Sobrenome:</label>
-        <input type="text" id="inputNome" placeholder="Digite seu nome e sobrenome" onChange={handleChange} />
+        <label htmlFor="nome">Nome e Sobrenome:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome e sobrenome" value={dadosFormulario.nome} onChange={handleChange} />
       </div>
 
-      {/* Dados do Curso */}
       <div className="dados-curso-container">
-        <label htmlFor="inputNomeCurso">Nome do Curso:</label>
-        <input type="text" id="inputNomeCurso" placeholder="Digite o nome do curso" onChange={handleChange} />
+        <label htmlFor="nomeCurso">Nome do Curso:</label>
+        <input type="text" id="nomeCurso" placeholder="Digite o nome do curso" value={dadosFormulario.nomeCurso} onChange={handleChange} />
 
-        <label htmlFor="inputNomeUsuario">Matrícula:</label>
-        <input type="text" id="inputNomeUsuario" placeholder="Digite seu nome de usuário" onChange={handleChange} />
+        <label htmlFor="nomeUsuario">Matrícula:</label>
+        <input type="text" id="nomeUsuario" placeholder="Digite seu nome de usuário" value={dadosFormulario.nomeUsuario} onChange={handleChange} />
 
-        <label htmlFor="inputSenha">Senha:</label>
-        <input type="password" id="inputSenha" placeholder="Digite sua senha" onChange={handleChange} />
+        <label htmlFor="senha">Senha:</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" value={dadosFormulario.senha} onChange={handleChange} />
 
-        <label htmlFor="inputConfirmeSenha">Confirme a Senha:</label>
-        <input type="password" id="inputConfirmeSenha" placeholder="Confirme sua senha" onChange={handleChange} />
+        <label htmlFor="confirmeSenha">Confirme a Senha:</label>
+        <input type="password" id="confirmeSenha" placeholder="Confirme sua senha" value={dadosFormulario.confirmeSenha} onChange={handleChange} />
       </div>
 
-      {/* Dados de Contato */}
       <div className="dados-contato-container">
-        <label htmlFor="inputEmail">E-mail:</label>
-        <input type="email" id="inputEmail" placeholder="Digite seu e-mail" onChange={handleChange} />
+        <label htmlFor="email">E-mail:</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail" value={dadosFormulario.email} onChange={handleChange} />
 
-        <label htmlFor="inputCelular">Celular:</label>
-        <input type="tel" id="inputCelular" placeholder="Digite seu número de celular" onChange={handleChange} />
+        <label htmlFor="celular">Celular:</label>
+        <input type="tel" id="celular" placeholder="Digite seu número de celular" value={dadosFormulario.celular} onChange={handleChange} />
       </div>
 
-      {/* Botão para enviar dados ao back-end */}
       <button onClick={enviarDados}>Enviar</button>
-      <button onClick={abrirNovaPagina}>Login</button>
 
-      {/* Div para exibir a mensagem */}
+      {/* Adiciona um botão para redirecionar para a Pagina de Login */}
+      <button onClick={() => navigate('/pagina1')} className="btn-redirecionamento">
+        Login
+      </button>
+
       <div id="mensagem">{mensagem}</div>
     </div>
   );
