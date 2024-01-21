@@ -16,9 +16,9 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
-  /* Largura do container, ajuste conforme necessário */
+  /* Largura do container */
   margin-top: -300px;
-  /* Ajuste conforme necessário para subir mais */
+
 }
 
 .form-container {
@@ -72,4 +72,32 @@ a {
   height: auto;
   /* Mantém a proporção original da imagem */
   z-index: 999;
+}
+
+.olho-icon {
+  position: absolute;
+  right: 15px;
+  top: 45%;
+  /* centralize verticalmente */
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.senha-container {
+  position: relative;
+}
+
+.senha-container input {
+  padding-right: 30px;
+  /* Espaçamento para acomodar o botão */
+}
+
+.senha-container button {
+  position: absolute;
+  top: 25%;
+  right: 5px;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
